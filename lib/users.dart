@@ -10,7 +10,10 @@ class HalamanUsers extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("List Users"),
+        title: const Text(
+          "List Users",
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: FutureBuilder(
         future: ApiDataSource.instance.loadUsers(),
@@ -30,7 +33,7 @@ class HalamanUsers extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return HalamanDetailUsers(dataUsers: indexUsers);
+                      return detailpage(dataUsers: indexUsers);
                     }));
                   },
                   leading: CircleAvatar(

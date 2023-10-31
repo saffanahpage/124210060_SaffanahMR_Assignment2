@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:tujuh/api_data_source.dart';
 import 'package:tujuh/detail_users_model.dart';
 
-class HalamanDetailUsers extends StatelessWidget {
-  HalamanDetailUsers({super.key, required this.dataUsers});
+class detailpage extends StatelessWidget {
+  detailpage({super.key, required this.dataUsers});
   int dataUsers;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Detail Users"),
+        title: const Text(
+          "Detail User",
+        ),
       ),
       body: FutureBuilder(
         future: ApiDataSource.instance.loadDetailUsers(dataUsers),
@@ -26,7 +28,7 @@ class HalamanDetailUsers extends StatelessWidget {
                   child: Column(
                 children: [
                   SizedBox(
-                    height: 40,
+                    height: 50,
                   ),
                   CircleAvatar(
                     foregroundImage:
@@ -34,9 +36,12 @@ class HalamanDetailUsers extends StatelessWidget {
                     radius: 80,
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
-                  Text('${users.data!.firstName} ${users.data!.lastName}'),
+                  Text(
+                    '${users.data!.firstName} ${users.data!.lastName}',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text('${users.data!.email}'),
                 ],
               )),
